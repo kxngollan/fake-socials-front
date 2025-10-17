@@ -1,0 +1,102 @@
+.self-profile {
+  animation: appear 0.3s linear;
+}
+
+.self-profile .profile-main .editable-pfp {
+  max-width: 30%;
+  position: relative;
+}
+
+.self-profile .profile-main .editable-pfp img {
+  width: 100%;
+}
+
+.self-profile .profile-main .editable-pfp svg {
+  background-color: black;
+  border-radius: 50%;
+  padding: 0.2rem;
+  position: absolute;
+  top: 75%;
+  left: 75%;
+  cursor: pointer;
+}
+
+.self-profile .profile-main .editable-pfp input {
+  display: none;
+}
+
+.self-profile .save-changes {
+  border: 2px solid var(--color-text);
+  height: fit-content;
+  font-family: Inter;
+  font-weight: bold;
+  margin: 0.5rem 1rem;
+  border-radius: 0.5rem;
+  color: var(--color-bg);
+  background-color: var(--color-text);
+}
+
+.self-profile .save-changes:hover:enabled {
+  cursor: pointer;
+  color: var(--color-text);
+  background-color: var(--color-bg);
+}
+
+.self-profile .save-changes:disabled {
+  cursor: not-allowed;
+  opacity: 0.4;
+}
+
+.self-profile .save {
+  display: flex;
+  align-items: center;
+}
+
+.self-profile .save span {
+  margin: 0;
+}
+
+.self-profile .edit-input {
+  display: flex;
+  max-width: 100%;
+  text-overflow: ellipsis;
+}
+
+.self-profile .edit-input svg:hover {
+  cursor: pointer;
+  opacity: 0.5;
+}
+
+.self-profile input,
+.self-profile textarea {
+  font-family: Inter, Arial, Helvetica, sans-serif;
+  color: var(--color-text);
+  background-color: var(--color-bg);
+  border: 1px solid var(--color-neutral-2);
+  border-radius: 0.2rem;
+  padding: 0.25rem;
+  width: 90%;
+  max-width: 90%;
+}
+
+.self-profile input:focus,
+.self-profile textarea:focus {
+  outline: none;
+}
+
+.self-profile textarea {
+  width: 100%;
+  resize: none;
+  font-size: 1rem;
+  padding: 0.5rem;
+  height: 1rem;
+}
+
+.input-label {
+  color: var(--color-neutral-2);
+}
+
+.username-label {
+  font-weight: bold;
+  font-size: 1.3rem;
+}

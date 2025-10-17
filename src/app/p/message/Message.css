@@ -1,0 +1,18 @@
+.grey {
+  text-align: center;
+  color: var(--color-neutral-2);
+  padding: 4rem;
+}
+
+.redirect {
+  color: rgb(100, 18, 231);
+
+  &:hover {
+    text-decoration: underline;
+    cursor: pointer;
+  }
+}
+
+.chats {
+  animation: appear 0.3s linear;
+}
