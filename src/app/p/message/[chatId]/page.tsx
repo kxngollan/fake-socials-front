@@ -4,7 +4,7 @@ import { useEffect, useRef, useState } from "react";
 import { IconSend } from "@tabler/icons-react";
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import { io, Socket } from "socket.io-client";
-import TextBubble from "@/components/DM/TextBubble";
+import TextBubble from "@/components/dm/TextBubble";
 import TextareaAutosize from "react-textarea-autosize";
 import { useAuthContext } from "@/hooks/useAuthContext";
 import { format } from "date-fns";

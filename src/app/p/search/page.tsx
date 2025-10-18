@@ -1,11 +1,11 @@
-'use client'
+"use client";
 
 import "./Search.css";
 import { IconSearch } from "@tabler/icons-react";
 import { useFetch } from "@/hooks/useFetch";
 import { useEffect, useRef, useState } from "react";
-import ProfilePreview from "@/components/profilePreview/ProfilePreview";
-import Loader from '@/components/loaders/Loader';
+import ProfilePreview from "@/components/profilepreview/ProfilePreview";
+import Loader from "@/components/loaders/Loader";
 import { toast } from "react-toastify";
 
 const SearchUsers = () => {
@@ -17,7 +17,7 @@ const SearchUsers = () => {
   useEffect(() => {
     const handleKeydown = (e) => {
       if (e.key === "Enter") {
-        handleSubmit(); 
+        handleSubmit();
       }
     };
     document.addEventListener("keydown", handleKeydown);
@@ -25,10 +25,9 @@ const SearchUsers = () => {
     return () => document.removeEventListener("keydown", handleKeydown);
   }, []);
 
-  useEffect(()=>{
-    document.title = "Search Users - Fake Socials"
-  },[])
-  
+  useEffect(() => {
+    document.title = "Search Users - Fake Socials";
+  }, []);
 
   const handleSubmit = async () => {
     const query = queryRef.current?.value ?? "";
@@ -47,7 +46,7 @@ const SearchUsers = () => {
   return (
     <div className="content search-users">
       <div className="search">
-        <form onSubmit={(e)=>e.preventDefault()}>
+        <form onSubmit={(e) => e.preventDefault()}>
           <IconSearch />
           <input
             type="search"

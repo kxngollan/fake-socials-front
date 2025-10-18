@@ -1,8 +1,8 @@
-"use client"
+"use client";
 
 import "./Likes.css";
 import { useFetch } from "@/hooks/useFetch";
-import PostCard from "@/components/postCard/PostCard";
+import PostCard from "@/components/postcard/PostCard";
 import { useQuery } from "@tanstack/react-query";
 import BackNav from "@/components/backnav/BackNav";
 import BadRequest from "@/components/error/BadRequest";

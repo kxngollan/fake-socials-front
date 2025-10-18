@@ -3,7 +3,7 @@
 import { useEffect, useState } from "react";
 import "./Home.css";
 import PostCard from "@/components/postcard/PostCard";
-import ProfilePreview from "@/components/profilePreview/ProfilePreview";
+import ProfilePreview from "@/components/profilepreview/ProfilePreview";
 import { useQuery } from "@tanstack/react-query";
 import { useRouter } from "next/navigation";
 import BadRequest from "@/components/error/BadRequest";
@@ -44,9 +44,9 @@ export default function Home() {
     top_users = [],
   } = feedQuery.data || ({} as FeedResponse);
 
-    useEffect(()=>{
-      document.title="Home - Fake Socials"
-    },[])
+  useEffect(() => {
+    document.title = "Home - Fake Socials";
+  }, []);
 
   return (
     <div className="content" id="home-page">
@@ -54,13 +54,17 @@ export default function Home() {
         <div className="feed-options">
           <span
             onClick={() => setFeedSort("recent")}
-            className={`cursor-pointer ${feedSort === "recent" ? "selected" : ""}`}
+            className={`cursor-pointer ${
+              feedSort === "recent" ? "selected" : ""
+            }`}
           >
             Recent
           </span>
           <span
             onClick={() => setFeedSort("following")}
-            className={`cursor-pointer ${feedSort === "following" ? "selected" : ""}`}
+            className={`cursor-pointer ${
+              feedSort === "following" ? "selected" : ""
+            }`}
           >
             Following
           </span>

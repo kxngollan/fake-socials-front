@@ -9,11 +9,11 @@ import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import { io } from "socket.io-client";
 import TextBubble from "./TextBubble";
 import TextareaAutosize from "react-textarea-autosize";
-import { useAuthContext } from "../../hooks/useAuthContext";
+import { useAuthContext } from "@/hooks/useAuthContext";
 import { format } from "date-fns";
 import { toast } from "react-toastify";
 import Loader from "../loaders/Loader";
-import BadRequest from "@/pages/error/BadRequest";
+import BadRequest from "../error/BadRequest";
 
 const SERVER_URL = process.env.NEXT_PUBLIC_API;
 
