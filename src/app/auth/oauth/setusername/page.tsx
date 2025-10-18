@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useState, Suspense } from "react";
 import { useRouter, useSearchParams } from "next/navigation";
 import Link from "next/link";
 import { IconAlertOctagon } from "@tabler/icons-react";
@@ -9,7 +9,7 @@ import { myFetch } from "@/utils/myFetch";
 import { useAuthContext } from "@/hooks/useAuthContext";
 import Loader from "@/components/loaders/Loader";
 
-export default function SetUsernamePage() {
+const SetUsernamePage = () => {
   const { user, dispatch } = useAuthContext();
   const searchParams = useSearchParams();
   const router = useRouter();
@@ -82,9 +82,9 @@ export default function SetUsernamePage() {
     }
   };
 
-    useEffect(()=>{
-    document.title="Set Username - Fake Socials"
-  },[])
+  useEffect(() => {
+    document.title = "Set Username - Fake Socials";
+  }, []);
 
   return (
     <>
@@ -127,4 +127,14 @@ export default function SetUsernamePage() {
       </p>
     </>
   );
-}
+};
+
+const Page = () => {
+  return (
+    <Suspense>
+      <SetUsernamePage />
+    </Suspense>
+  );
+};
+
+export default Page;
