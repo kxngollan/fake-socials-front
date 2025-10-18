@@ -9,7 +9,6 @@ import { useAuthContext } from "@/hooks/useAuthContext";
 import { myFetch } from "@/utils/myFetch";
 import Loader from "@/components/loaders/Loader";
 
-
 const API_URL = process.env.NEXT_PUBLIC_API_URL ?? "";
 
 const LoginPage = () => {
@@ -66,16 +65,13 @@ const LoginPage = () => {
         body: JSON.stringify({ username, password }),
       });
 
-      console.log(res)
+      console.log(res);
 
       dispatch({ type: "LOGIN", payload: res });
       localStorage.setItem("user", JSON.stringify(res));
-        goHome()
+      goHome();
 
-        setTimeout(()=>
-          setDisabled(false), 1000
-      )
-    
+      setTimeout(() => setDisabled(false), 1000);
     } catch (err: any) {
       console.error(err);
       setError(err?.message || "Something went wrong. Please try again.");
@@ -83,9 +79,9 @@ const LoginPage = () => {
     }
   };
 
-  useEffect(()=>{
-    document.title="Login - Fake Socials"
-  },[])
+  useEffect(() => {
+    document.title = "Login - Fake Socials";
+  }, []);
 
   return (
     <>
@@ -175,6 +171,6 @@ const LoginPage = () => {
       </button>
     </>
   );
-}
+};
 
-export default LoginPage
+export default LoginPage;

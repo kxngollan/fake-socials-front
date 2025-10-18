@@ -14,7 +14,7 @@ import Loader from "@/components/loaders/Loader";
 import BadRequest from "@/components/error/BadRequest";
 import "../Message.css";
 
-const SERVER_URL: string = process.env.NEXT_PUBLIC_API_URL 
+const SERVER_URL: string = process.env.NEXT_PUBLIC_API_URL ?? "";
 
 async function myFetch<T>(path: string, init?: RequestInit): Promise<T> {
   const res = await fetch(`${SERVER_URL}${path}`, {
@@ -63,13 +63,11 @@ const DMs = ({ chatId, pfpUrl }: { chatId: string; pfpUrl?: string }) => {
     queryFn: () => myFetch(`/api/chats/${chatId}`),
   });
 
-  // autoscroll on message changes
   useEffect(() => {
     if (bottomChatRef.current)
       bottomChatRef.current.scrollIntoView({ behavior: "smooth" });
   }, [data?.messages]);
 
-  // socket connect + listeners
   useEffect(() => {
     const socket = io(SERVER_URL, { withCredentials: true });
     socketRef.current = socket;

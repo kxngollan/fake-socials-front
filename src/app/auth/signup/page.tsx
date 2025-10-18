@@ -82,9 +82,9 @@ export default function Signup() {
 
   const passwordsMismatch = pass !== "" && confirm !== "" && pass !== confirm;
 
-    useEffect(()=>{
-      document.title="Sign Up - Fake Socials"
-    },[])
+  useEffect(() => {
+    document.title = "Sign Up - Fake Socials";
+  }, []);
 
   return (
     <>

@@ -2,8 +2,7 @@ import React from "react";
 import Header from "@/components/header/Header";
 import Sidebar from "@/components/sidebar/Sidebar";
 import ProtectedRoute from "@/components/ProtectedRoute";
-
-import "./layout/othercopy.css"
+import "./index.css";
 
 const layout = ({
   children,

@@ -1,4 +1,4 @@
-"use client"
+"use client";
 
 import "./post.css";
 import { useRouter, useParams } from "next/navigation";
@@ -13,7 +13,7 @@ import BadRequest from "@/components/error/BadRequest";
 
 const Post = () => {
   const params = useParams();
-  const postId = params.postId
+  const postId = params.postId;
   const getPost = useFetch();
   const route = useRouter();
   const postQuery = useQuery({
@@ -32,7 +32,11 @@ const Post = () => {
           <BadRequest />
         ) : (
           <>
-            <PostCard post={post} pageQueryKey={["post", postId]} showDelete={true} />
+            <PostCard
+              post={post}
+              pageQueryKey={["post", postId]}
+              showDelete={true}
+            />
             <CreateComment postId={post.id} />
 
             <p>View comments ({post._count.comments})</p>

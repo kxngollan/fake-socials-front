@@ -12,11 +12,15 @@ export default function ProtectedRoute({
   const { loading, user } = useAuthContext();
   const router = useRouter();
 
+  const forceLogin = () => {
+    router.push("/auth/login");
+  };
+
   useEffect(() => {
     if (!loading && !user) {
-      router.push("/auth/login");
+      forceLogin();
     }
-  }, [loading, user, router]);
+  }, [loading, user, forceLogin]);
 
   if (loading) return <p>Loading...</p>;
 
