@@ -7,13 +7,13 @@ import { IconSend } from "@tabler/icons-react";
 import { useFetch } from "../../hooks/useFetch";
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import { io } from "socket.io-client";
-import TextBubble from "./TextBubble";
 import TextareaAutosize from "react-textarea-autosize";
 import { useAuthContext } from "@/hooks/useAuthContext";
 import { format } from "date-fns";
 import { toast } from "react-toastify";
 import Loader from "../loaders/Loader";
 import BadRequest from "../error/BadRequest";
+import TextBubble from "../textbubble/TextBubble";
 
 const SERVER_URL = process.env.NEXT_PUBLIC_API;
 
