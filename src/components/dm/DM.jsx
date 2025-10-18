@@ -30,7 +30,7 @@ const DM = () => {
   const pfp_url = useLocation().state.url;
 
   const { data, isPending, isError } = useQuery({
-    queryFn: () => myFetch(`/chats/${chatId}`),
+    queryFn: () => myFetch(`/api/chats/${chatId}`),
     queryKey: ["DM", chatId],
   });
 

@@ -63,7 +63,7 @@ const useCommentMutation = (comment, postId, refetch) => {
     });
 
   const likeComment = createMutation(
-    () => myFetch(`/comments/${comment.id}/like`, { method: "POST" }),
+    () => myFetch(`/api/comments/${comment.id}/like`, { method: "POST" }),
     (comment) => {
       return {
         ...comment,
@@ -74,7 +74,7 @@ const useCommentMutation = (comment, postId, refetch) => {
   );
 
   const unlikeComment = createMutation(
-    () => myFetch(`/comments/${comment.id}/unlike`, { method: "POST" }),
+    () => myFetch(`/api/comments/${comment.id}/unlike`, { method: "POST" }),
     (comment) => {
       return {
         ...comment,

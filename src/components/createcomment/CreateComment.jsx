@@ -1,4 +1,4 @@
-"use client"
+"use client";
 
 import { useState } from "react";
 import "./CreateComment.css";
@@ -19,7 +19,7 @@ const CreateComment = ({ postId }) => {
 
   const createCommentMutation = useMutation({
     mutationFn: () =>
-      postComment(`/comments`, {
+      postComment(`/api/comments`, {
         method: "POST",
         body: JSON.stringify({
           postId,
