@@ -1,5 +1,4 @@
 import { IconZoomExclamation } from "@tabler/icons-react";
-import "./NotFound.css";
 const BadRequest = () => {
   return (
     <div className="">
