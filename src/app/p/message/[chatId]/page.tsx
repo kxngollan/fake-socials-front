@@ -1,3 +1,17 @@
+import BadRequest from "@/components/error/BadRequest";
+
+const Page = () => {
+  return (
+    <div className="content">
+      <div>
+        <BadRequest />
+      </div>
+    </div>
+  );
+};
+
+export default Page;
+
 // "use client";
 
 // import { useEffect, useRef, useState } from "react";

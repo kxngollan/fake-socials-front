@@ -30,7 +30,6 @@ type quoteType = {
 export default function Home() {
   const myFetch = useFetch();
   const router = useRouter();
-  const [quote, setQuote] = useState<quoteType>(null);
 
   const [feedSort, setFeedSort] = useState<"recent" | "following">("recent");
 
@@ -52,8 +51,10 @@ export default function Home() {
 
   useEffect(() => {
     document.title = "Home - Fake Socials";
-    setQuote(getTodaysQuote());
+    localStorage.setItem("quote", JSON.stringify(getTodaysQuote()));
   }, []);
+
+  const quote = JSON.parse(localStorage.getItem("quote"));
 
   return (
     <div className="content" id="home-page">
@@ -136,8 +137,14 @@ export default function Home() {
             <div className="announcement">
               <p>Quote Of The Day </p>
               <ul>
-                <li>{quote.body}</li>
-                <li className=" text- ">{quote.by}</li>
+                {quote ? (
+                  <>
+                    <li>{quote.body}</li>
+                    <li className=" text- ">{quote.by}</li>
+                  </>
+                ) : (
+                  ""
+                )}
               </ul>
             </div>
           </>
