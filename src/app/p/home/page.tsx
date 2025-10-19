@@ -135,7 +135,7 @@ export default function Home() {
             </section>
 
             <div className="announcement">
-              <p>Quote Of The Day </p>
+              <p>Motivation</p>
               <ul>
                 {quote ? (
                   <>

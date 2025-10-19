@@ -7,11 +7,10 @@
   font-family: Alata;
   display: flex;
   justify-content: center;
-  gap: 1rem;
+  gap: 3rem;
   font-size: 1.25rem;
   padding: 1rem 0;
   border-bottom: 1px solid var(--color-neutral-bg);
-  cursor: pointer;
 }
 
 #home-page .feed-options span.selected {
