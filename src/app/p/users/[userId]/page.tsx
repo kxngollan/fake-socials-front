@@ -16,6 +16,7 @@ import PostCard from "@/components/postcard/PostCard";
 import BackNav from "@/components/backnav/BackNav";
 import ProfileStats from "@/components/profilestats/ProfileStats";
 import Loader from "@/components/loaders/Loader";
+import { useEffect } from "react";
 
 const UserProfile = () => {
   const route = useRouter();
@@ -23,7 +24,6 @@ const UserProfile = () => {
 
   const myFetch = useFetch();
   const getUser = async ({ queryKey }) => {
-    // console.log("Passing ID:", queryKey);
     return await myFetch(`/api/users/${queryKey[1]}`);
   };
   const queryKey = ["user", userId, "post"];
@@ -36,16 +36,16 @@ const UserProfile = () => {
 
   const { user } = data || {};
 
-  const handleChat = async () => {
-    try {
-      const data = await myFetch(`/api/chats/user/${userId}`, {
-        method: "PUT",
-      });
-      route.push(`/p/message/${data.chat.id}`);
-    } catch (err) {
-      console.log(err);
-    }
-  };
+  // const handleChat = async () => {
+  //   try {
+  //     const data = await myFetch(`/api/chats/user/${userId}`, {
+  //       method: "PUT",
+  //     });
+  //     route.push(`/p/message/${data.chat.id}`);
+  //   } catch (err) {
+  //     console.log(err);
+  //   }
+  // };
 
   if (user && user.profile?.website) {
     user.profile.website = user.profile.website.startsWith("http")
@@ -57,6 +57,14 @@ const UserProfile = () => {
       ? user.profile.github
       : `https://${user.profile.github}`;
   }
+
+  useEffect(() => {
+    document.title = `${user?.username ?? ""} Profile - Fake Socials`;
+  }, [user]);
+
+  console.log(authContext);
+
+  if (user?.username === authContext?.user?.username) route.push("/p/profile");
 
   return (
     <div className="content user-profile-page">

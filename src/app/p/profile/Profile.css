@@ -1,95 +1,95 @@
 .self-profile {
   animation: appear 0.3s linear;
-}
+  .profile-main {
+    .editable-pfp {
+      max-width: 30%;
+      position: relative;
 
-.self-profile .profile-main .editable-pfp {
-  max-width: 30%;
-  position: relative;
-}
+      img {
+        width: 100%;
+      }
 
-.self-profile .profile-main .editable-pfp img {
-  width: 100%;
-}
+      svg {
+        background-color: white;
+        color: black;
+        border-radius: 50%;
+        padding: 0.2rem;
+        position: absolute;
+        left: 0;
+        top: 75%;
+        left: 75%;
+        cursor: pointer;
+      }
 
-.self-profile .profile-main .editable-pfp svg {
-  background-color: black;
-  border-radius: 50%;
-  padding: 0.2rem;
-  position: absolute;
-  top: 75%;
-  left: 75%;
-  cursor: pointer;
-}
+      input {
+        display: none;
+      }
+    }
+  }
 
-.self-profile .profile-main .editable-pfp input {
-  display: none;
-}
+  .save-changes {
+    border: 2px solid black;
+    border-radius: 10px;
+    height: fit-content;
+    font-family: Inter;
+    font-weight: bold;
+    margin: 0.5rem 1rem;
+    border-radius: 0.5rem;
 
-.self-profile .save-changes {
-  border: 2px solid var(--color-text);
-  height: fit-content;
-  font-family: Inter;
-  font-weight: bold;
-  margin: 0.5rem 1rem;
-  border-radius: 0.5rem;
-  color: var(--color-bg);
-  background-color: var(--color-text);
-}
+    &:hover:enabled {
+      cursor: pointer;
+      color: white;
+      background-color: black;
+      border: 2px solid green;
+    }
 
-.self-profile .save-changes:hover:enabled {
-  cursor: pointer;
-  color: var(--color-text);
-  background-color: var(--color-bg);
-}
+    &:disabled {
+      cursor: not-allowed;
+      opacity: 0.4;
+    }
+  }
 
-.self-profile .save-changes:disabled {
-  cursor: not-allowed;
-  opacity: 0.4;
-}
+  .save {
+    display: flex;
+    align-items: center;
 
-.self-profile .save {
-  display: flex;
-  align-items: center;
-}
+    span {
+      margin: 0;
+    }
+  }
 
-.self-profile .save span {
-  margin: 0;
-}
+  .edit-input {
+    display: flex;
+    max-width: 100%;
+    text-overflow: ellipsis;
+    svg:hover {
+      cursor: pointer;
+      opacity: 0.5;
+    }
+  }
 
-.self-profile .edit-input {
-  display: flex;
-  max-width: 100%;
-  text-overflow: ellipsis;
-}
+  input,
+  textarea {
+    font-family: Inter, Arial, Helvetica, sans-serif;
+    color: var(--color-text);
+    background-color: var(--color-bg);
+    border: 1px solid var(--color-neutral-2);
+    border-radius: 0.2rem;
+    padding: 0.25rem;
+    width: 90%;
+    max-width: 90%;
+    &:focus {
+      outline: none;
+    }
+  }
 
-.self-profile .edit-input svg:hover {
-  cursor: pointer;
-  opacity: 0.5;
-}
-
-.self-profile input,
-.self-profile textarea {
-  font-family: Inter, Arial, Helvetica, sans-serif;
-  color: var(--color-text);
-  background-color: var(--color-bg);
-  border: 1px solid var(--color-neutral-2);
-  border-radius: 0.2rem;
-  padding: 0.25rem;
-  width: 90%;
-  max-width: 90%;
-}
-
-.self-profile input:focus,
-.self-profile textarea:focus {
-  outline: none;
-}
-
-.self-profile textarea {
-  width: 100%;
-  resize: none;
-  font-size: 1rem;
-  padding: 0.5rem;
-  height: 1rem;
+  textarea {
+    width: 100%;
+    resize: none;
+    font-size: 1rem;
+    padding: 0.5rem;
+    height: 1rem;
+  }
 }
 
 .input-label {
@@ -99,4 +99,130 @@
 .username-label {
   font-weight: bold;
   font-size: 1.3rem;
+}
+
+.user-profile-page {
+  .profile-main {
+    animation: rise 0.3s linear;
+    display: flex;
+    padding: 1.5rem 1rem;
+    gap: 1rem;
+    font-size: 1.1rem;
+    align-items: center;
+
+    img {
+      object-fit: cover;
+      width: 30%;
+      height: fit-content;
+      aspect-ratio: 1 !important;
+      border-radius: 50%;
+      border: 2px solid var(--color-neutral-bg);
+    }
+    > div:last-of-type {
+      width: 70%;
+      padding-left: 1rem;
+      margin-left: auto;
+      margin-right: auto;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+
+      .profile-username {
+        text-align: center;
+        max-width: 100%;
+        font-weight: bold;
+        font-size: 1.2rem;
+        overflow-wrap: break-word;
+        text-overflow: ellipsis;
+      }
+      .profile-displayname {
+        max-width: 100%;
+        text-align: center;
+        overflow-wrap: break-word;
+        color: var(--color-neutral-1);
+      }
+
+      .stats {
+        margin: 1rem 0;
+        display: flex;
+        align-items: center;
+        gap: 2vw;
+        > div > p:nth-child(1) {
+          font-weight: bold;
+          text-align: center;
+        }
+        > div > p:nth-child(2) {
+          font-size: 0.95rem;
+        }
+      }
+      .user-actions {
+        width: 70%;
+        display: flex;
+        gap: 0.5rem;
+        justify-content: space-between;
+        button {
+          flex: 1;
+          padding: 0.25rem 0.75rem;
+
+          &:hover {
+            background-color: var(--color-neutral-1);
+            color: var(--color-bg);
+          }
+
+          &.follow {
+            background-color: var(--color-neutral-1);
+            color: var(--color-bg);
+            &:hover {
+              background-color: var(--color-bg);
+              color: var(--color-neutral-1);
+            }
+          }
+        }
+
+        button:nth-child(2) {
+          flex: 0;
+        }
+      }
+    }
+  }
+
+  .profile-details {
+    padding: 1.5rem 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+
+    > div {
+      display: flex;
+      gap: 0.5rem;
+      a {
+        text-decoration: none;
+        color: var(--color-text);
+
+        &:hover {
+          text-decoration: underline;
+        }
+      }
+    }
+
+    .profile-bio,
+    .profile-website,
+    .profile-github {
+      max-width: 90%;
+      overflow-wrap: break-word;
+    }
+  }
+
+  .profile-posts {
+    display: flex;
+    flex-direction: column;
+    > p:first-child {
+      padding: 0.5rem 0rem;
+      margin-left: 1rem;
+      margin-right: 1rem;
+      text-align: center;
+      border-bottom: 1px solid var(--color-neutral-bg);
+    }
+  }
 }

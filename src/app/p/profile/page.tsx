@@ -16,8 +16,6 @@ import ProfileInput from "@/components/profileinput/ProfileInput";
 import ProfileStats from "@/components/profilestats/ProfileStats";
 import Loader from "@/components/loaders/Loader";
 
-import Image from "next/image";
-
 const Profile = () => {
   const MAX_FILE_SIZE = 1024 * 1024 * 8;
   const { user, dispatch } = useAuthContext();
@@ -84,7 +82,7 @@ const Profile = () => {
     },
   });
 
-  const { data, error, isPending, status } = useQuery({
+  const { data, isPending, status } = useQuery({
     queryKey: ["post", "profile"],
     queryFn: fetchUser,
   });
@@ -113,9 +111,10 @@ const Profile = () => {
   const currUser = (data && data.user) || {};
 
   useEffect(() => {
-    document.title = `${user.username} Profile - Fake Social`;
+    document.title = `Edit Profile - Fake Social`;
   }, [user]);
 
+  console.log(user);
   return (
     <div className="content user-profile-page self-profile">
       <div>
@@ -126,7 +125,17 @@ const Profile = () => {
           <>
             <div className="profile-main">
               <div className="editable-pfp">
-                <img alt="attachment" src={attachment} />
+                {attachment ? (
+                  <img alt="attachment" src={attachment} />
+                ) : (
+                  <img
+                    src={
+                      user.profilePicture ??
+                      "https://static.vecteezy.com/system/resources/thumbnails/009/292/244/small/default-avatar-icon-of-social-media-user-vector.jpg"
+                    }
+                    alt="profile picture"
+                  />
+                )}
                 <label htmlFor="attachment">
                   <IconEdit />
                 </label>
@@ -140,7 +149,7 @@ const Profile = () => {
                 />
               </div>
               <div>
-                {user.username === "GuestUser" ? (
+                {user.username === "222" ? (
                   <p className="username-label">{user.username}</p>
                 ) : (
                   <ProfileInput
@@ -205,7 +214,7 @@ const Profile = () => {
             <div className="save">
               <button
                 disabled={updateUserMutation.isPending}
-                className="save-changes"
+                className="save-changes border-2 border-black cursor-pointer"
                 onClick={handleUpdateUser}
               >
                 Save Changes

@@ -4,7 +4,8 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import ToastConfig from "@/components/toasts/ToastConfig";
 import "@/assets/styles/animations.css";
 import "@/assets/styles/skeleton.css";
-import "./Global.css"
+import "./Global.css";
+import { useEffect } from "react";
 
 const queryClient = new QueryClient();
 
@@ -13,6 +14,10 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  useEffect(() => {
+    document.title = "Fake Socials";
+  }, []);
+
   return (
     <html lang="en">
       <body>

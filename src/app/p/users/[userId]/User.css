@@ -11,7 +11,7 @@
       object-fit: cover;
       width: 30%;
       height: fit-content;
-      aspect-ratio: !important;
+      aspect-ratio: 1 !important;
       border-radius: 50%;
       border: 2px solid var(--color-neutral-bg);
     }
