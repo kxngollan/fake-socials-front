@@ -7,6 +7,7 @@ import {
   IconMessage,
   IconMessages,
 } from "@tabler/icons-react";
+import Image from "next/image";
 import { useState, Fragment } from "react";
 import { useRouter } from "next/navigation";
 import {
@@ -20,8 +21,6 @@ import TextareaAutosize from "react-textarea-autosize";
 import { useFetch } from "@/hooks/useFetch";
 import useCommentMutation from "@/hooks/useCommentMutation";
 import "./CommentCard.css";
-
-const DEFAULT_PFP = process.env.NEXT_PUBLIC_DEFAULT_PFP;
 
 interface CommentCardProps {
   comment: any;
@@ -95,9 +94,19 @@ const CommentCard = ({ comment, postId }: CommentCardProps) => {
     <div className="parent-comment-card">
       <div className="comment-header">
         {comment.user.profile ? (
-          <img src={comment.user.profile.profilePicture} alt="" />
+          <Image
+            src={comment.user.profile.profilePicture}
+            alt="profile picture"
+            width={0}
+            height={0}
+          />
         ) : (
-          <img src={DEFAULT_PFP || ""} alt="" />
+          <Image
+            src="https://static.vecteezy.com/system/resources/thumbnails/009/292/244/small/default-avatar-icon-of-social-media-user-vector.jpg"
+            alt="default profile picture"
+            width={0}
+            height={0}
+          />
         )}
 
         <span

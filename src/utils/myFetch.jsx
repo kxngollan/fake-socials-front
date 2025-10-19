@@ -1,8 +1,8 @@
-const API_URL = process.env.NEXT_PUBLIC_API ?? "";
+const API_URL = process.env.NEXT_PUBLIC_API_URL ?? "";
 
 /**
  *
- * @param {*} url the path to the API after /api/
+ * @param {*} url the path to the API + path
  * @param {*} options for request method and other options not here
  * @param {*} content_type for the content type, forms with image should be multipart data
  * @returns
@@ -14,7 +14,7 @@ export const myFetch = async (
   content_type = "application/json"
 ) => {
   console.log(API_URL + url);
-  const response = await fetch(API_URL + url, {
+  const response = await fetch(API_URL + "/api/" + url, {
     headers: {
       ...(content_type ? { "Content-Type": content_type } : {}),
       ...(user ? { Authorization: `Bearer ${user.token}` } : {}),

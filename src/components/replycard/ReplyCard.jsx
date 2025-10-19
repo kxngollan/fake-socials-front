@@ -2,6 +2,7 @@ import "./ReplyCard.css";
 import { formatDistanceToNowStrict } from "date-fns";
 import { IconHeart, IconHeartFilled } from "@tabler/icons-react";
 import useCommentMutation from "@/hooks/useCommentMutation";
+import Image from "next/image";
 
 const ReplyCard = ({ comment, refetch }) => {
   const written_time = formatDistanceToNowStrict(new Date(comment.createdAt));
@@ -15,9 +16,16 @@ const ReplyCard = ({ comment, refetch }) => {
     <div className="reply-card">
       <div className="reply-header">
         {comment.user.profile ? (
-          <img src={comment.user.profile.profilePicture} alt="" />
+          <Image src={comment.user.profile.profilePicture} alt="" />
         ) : (
-          <img src={null} alt="" />
+          <Image
+            src={
+              "https://static.vecteezy.com/system/resources/thumbnails/009/292/244/small/default-avatar-icon-of-social-media-user-vector.jpg"
+            }
+            width={0}
+            height={0}
+            alt=""
+          />
         )}
 
         <span>{comment.user.username}</span>

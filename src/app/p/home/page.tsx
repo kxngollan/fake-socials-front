@@ -20,17 +20,23 @@ type FeedResponse = {
   top_users: Array<any>;
 };
 
+type quoteType = {
+  id: string;
+  catergory: string;
+  body: string;
+  by: string;
+};
+
 export default function Home() {
   const myFetch = useFetch();
   const router = useRouter();
+  const [quote, setQuote] = useState<quoteType>(null);
 
   const [feedSort, setFeedSort] = useState<"recent" | "following">("recent");
 
   function handleClick(postId: string) {
     router.push(`/p/posts/${postId}`);
   }
-
-  const quote = getTodaysQuote();
 
   const feedQuery = useQuery<FeedResponse>({
     queryKey: ["feed", "post"],
@@ -46,6 +52,7 @@ export default function Home() {
 
   useEffect(() => {
     document.title = "Home - Fake Socials";
+    setQuote(getTodaysQuote());
   }, []);
 
   return (
@@ -130,6 +137,7 @@ export default function Home() {
               <p>Quote Of The Day </p>
               <ul>
                 <li>{quote.body}</li>
+                <li className=" text- ">{quote.by}</li>
               </ul>
             </div>
           </>

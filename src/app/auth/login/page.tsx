@@ -88,8 +88,8 @@ const LoginPage = () => {
       <Image
         src={"https://placehold.co/600x400"}
         alt="Logo"
-        width={64}
-        height={64}
+        width={0}
+        height={0}
         priority
       />
       <p>Welcome!</p>
@@ -164,8 +164,8 @@ const LoginPage = () => {
           className="google-icon"
           src={GoogleLogo}
           alt=""
-          width={18}
-          height={18}
+          width={0}
+          height={0}
         />
         <span>Continue with Google</span>
       </button>

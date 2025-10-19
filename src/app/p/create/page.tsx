@@ -2,6 +2,7 @@
 
 import { useRef, useState, useEffect, useCallback } from "react";
 import { useMutation, useQueryClient } from "@tanstack/react-query";
+import Image from "next/image";
 import { useRouter } from "next/navigation";
 import { useFetch } from "@/hooks/useFetch";
 import TextareaAutosize from "react-textarea-autosize";
@@ -37,9 +38,9 @@ export default function CreatePostPage() {
 
   const MAX_FILE_SIZE = 1024 * 1024 * 8; // 8MB max
 
-  useEffect(()=>{
-    document.title="Create Post - Fake Socials"
-  },[])
+  useEffect(() => {
+    document.title = "Create Post - Fake Socials";
+  }, []);
 
   const handleAddTag = useCallback(
     (e) => {
@@ -109,7 +110,6 @@ export default function CreatePostPage() {
     createPostMutation.mutate(data);
   };
 
-
   const createPostMutation = useMutation({
     mutationFn: (variables) =>
       myF("/api/posts", { method: "POST", body: variables }, false),
@@ -140,8 +140,12 @@ export default function CreatePostPage() {
           {attachment && (
             <div className="mediaContainer">
               {attachmentType === "image" && (
-                // eslint-disable-next-line @next/next/no-img-element
-                <img src={attachment} alt="Attachment preview" />
+                <Image
+                  src={attachment}
+                  alt="Attachment preview"
+                  width={0}
+                  height={0}
+                />
               )}
               {attachmentType === "video" && (
                 <video controls>

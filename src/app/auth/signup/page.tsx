@@ -200,7 +200,13 @@ export default function Signup() {
         <span>or</span>
       </p>
       <button className="google" onClick={goGoogle}>
-        <Image className="google-icon" src={GoogleLogo} alt="Google" />
+        <Image
+          className="google-icon"
+          src={GoogleLogo}
+          alt="Google"
+          width={0}
+          height={0}
+        />
         <span>Continue with Google</span>
       </button>
     </>

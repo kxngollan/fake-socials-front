@@ -15,8 +15,6 @@ import { useAuthContext } from "@/hooks/useAuthContext";
 import { useEffect, useMemo, useState } from "react";
 import Image from "next/image";
 
-const DEFAULT_PFP = process.env.NEXT_PUBLIC_DEFAULT_PFP ?? "";
-
 type PostCardProps = {
   post: any;
   pageQueryKey?: any[];
@@ -66,10 +64,13 @@ const PostCard = ({
     <div onClick={goToPost} className="postcard" role="button">
       <div className="post-header">
         <Image
-          src={post.author?.profile?.profilePicture || "https://placehold.co/600x400"}
+          src={
+            post.author?.profile?.profilePicture ??
+            "https://static.vecteezy.com/system/resources/thumbnails/009/292/244/small/default-avatar-icon-of-social-media-user-vector.jpg"
+          }
           alt={`${post.author?.username || "user"} avatar`}
-          width={36}
-          height={36}
+          width={0}
+          height={0}
           onClick={(e) => {
             e.stopPropagation();
             goToUser(post.author.id);

@@ -15,7 +15,7 @@ import Loader from "../loaders/Loader";
 import BadRequest from "../error/BadRequest";
 import TextBubble from "../textbubble/TextBubble";
 
-const SERVER_URL = process.env.NEXT_PUBLIC_API;
+const SERVER_URL = process.env.NEXT_PUBLIC_API_URL;
 
 const DM = () => {
   const { user } = useAuthContext();
@@ -39,7 +39,7 @@ const DM = () => {
       bottomChatRef.current.scrollIntoView({ behavior: "smooth" });
   }, [data?.messages]);
   useEffect(() => {
-    socketRef.current = io.connect(SERVER_URL);
+    socketRef.current = io.connect(`${SERVER_URL}/api`);
     socketRef.current.emit("join_DM", chatId);
     socketRef.current.on("receive message", (msg) => {
       queryClient.setQueryData(["DM", chatId], (old) => ({

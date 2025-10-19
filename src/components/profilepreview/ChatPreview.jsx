@@ -1,6 +1,7 @@
-"use client"
+"use client";
 
 import "./ProfilePreview.css";
+import Image from "next/image";
 import { useRouter } from "next/navigation";
 
 const ChatPreview = ({ chat, hover = false }) => {
@@ -16,8 +17,11 @@ const ChatPreview = ({ chat, hover = false }) => {
     navigate.push(`/p/message/${chat.id}`, { state: { url: image_url } });
   };
   return (
-    <div onClick={handleClick} className="profile-preview-card chat-preview cursor-pointer">
-      <img src={image_url} alt="" />
+    <div
+      onClick={handleClick}
+      className="profile-preview-card chat-preview cursor-pointer"
+    >
+      <Image src={image_url} alt="" width={0} height={0} />
       <div>
         <p
           onClick={(e) => {

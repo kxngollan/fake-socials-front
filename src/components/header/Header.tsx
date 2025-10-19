@@ -5,8 +5,6 @@ import { useAuthContext } from "@/hooks/useAuthContext";
 import { useRouter } from "next/navigation";
 import Image from "next/image";
 
-const DEFAULT_PFP = process.env.NEXT_PUBLIC_DEFAULT_PFP;
-
 const Header = () => {
   const { user } = useAuthContext();
   const router = useRouter();
@@ -34,21 +32,23 @@ const Header = () => {
 
       <div className="notif"></div>
 
-      {user ? (
+      {user.profilePicture ? (
         <Image
-          src={user.profilePicture || DEFAULT_PFP || "/default.png"}
+          src={user.profilePicture}
           alt="Profile Picture"
-          width={40}
-          height={40}
+          width={0}
+          height={0}
           onClick={() => handleNavigate(`/p/users/${user.id}`)}
           style={{ borderRadius: "50%", cursor: "pointer" }}
         />
       ) : (
         <Image
-          src={DEFAULT_PFP || "/default.png"}
+          src={
+            "https://static.vecteezy.com/system/resources/thumbnails/009/292/244/small/default-avatar-icon-of-social-media-user-vector.jpg"
+          }
           alt="Default Profile Picture"
-          width={40}
-          height={40}
+          width={0}
+          height={0}
           style={{ borderRadius: "50%", cursor: "pointer" }}
         />
       )}

@@ -1,24 +1,22 @@
-'use client'
+"use client";
 
 import "./User.css";
 import { useParams, useRouter } from "next/navigation";
 import { useQuery } from "@tanstack/react-query";
 import {
-    IconBrandGithub,
-    IconMessageCircle,
-    IconWorld,
+  IconBrandGithub,
+  IconMessageCircle,
+  IconWorld,
 } from "@tabler/icons-react";
 import { useAuthContext } from "@/hooks/useAuthContext";
 import useFollowMutation from "@/hooks/useFollowMutation";
 import { useFetch } from "@/hooks/useFetch";
+import Image from "next/image";
 
 import PostCard from "@/components/postcard/PostCard";
 import BackNav from "@/components/backnav/BackNav";
 import ProfileStats from "@/components/profilestats/ProfileStats";
 import Loader from "@/components/loaders/Loader";
-
-const VITE_DEFAULT_PFP = ""
-
 
 const UserProfile = () => {
   const route = useRouter();
@@ -41,7 +39,9 @@ const UserProfile = () => {
 
   const handleChat = async () => {
     try {
-      const data = await myFetch(`/api/chats/user/${userId}`, { method: "PUT" });
+      const data = await myFetch(`/api/chats/user/${userId}`, {
+        method: "PUT",
+      });
       // console.log(data);
       route.push(`/p/message?chat=${data.chat.id}`);
     } catch (err) {
@@ -70,9 +70,19 @@ const UserProfile = () => {
             <BackNav label="User" />
             <div className="profile-main">
               {user?.profile?.profilePicture ? (
-                <img src={user.profile.profilePicture} />
+                <Image
+                  src={user.profile.profilePicture}
+                  alt="Profile Picture"
+                  width={0}
+                  height={0}
+                />
               ) : (
-                <img src={VITE_DEFAULT_PFP} />
+                <Image
+                  src="https://static.vecteezy.com/system/resources/thumbnails/009/292/244/small/default-avatar-icon-of-social-media-user-vector.jpg"
+                  alt="default profile picture"
+                  height={0}
+                  width={0}
+                />
               )}
               <div>
                 <p className="profile-username">{user.username}</p>
@@ -89,7 +99,12 @@ const UserProfile = () => {
                         Unfollow
                       </button>
                     ) : (
-                      <button className="follow" onClick={() => follow.mutate()}>Follow</button>
+                      <button
+                        className="follow"
+                        onClick={() => follow.mutate()}
+                      >
+                        Follow
+                      </button>
                     )}
                     <button onClick={handleChat}>
                       <IconMessageCircle />

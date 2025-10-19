@@ -1,9 +1,10 @@
 import "./ProfilePreview.css";
 import useFollowMutation from "@/hooks/useFollowMutation";
+import Image from "next/image";
 import { useRouter } from "next/navigation";
 
 const ProfilePreview = ({ user, showFollow = true, clickable = false }) => {
-  const route = useRouter()
+  const route = useRouter();
 
   const { follow, unfollow } = useFollowMutation(user, ["feed", "post"]);
   return (
@@ -14,11 +15,18 @@ const ProfilePreview = ({ user, showFollow = true, clickable = false }) => {
       className="profile-preview-card"
     >
       {user.profile && user.profile?.profilePicture ? (
-        <img src={user.profile.profilePicture} alt="" />
+        <Image
+          src={user.profile.profilePicture}
+          alt="profile picture"
+          width={0}
+          height={0}
+        />
       ) : (
-        <img
+        <Image
           src="https://static.vecteezy.com/system/resources/thumbnails/009/292/244/small/default-avatar-icon-of-social-media-user-vector.jpg"
-          alt=""
+          alt="default profile picture"
+          width={0}
+          height={0}
         />
       )}
 
