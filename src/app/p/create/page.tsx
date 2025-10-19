@@ -140,12 +140,7 @@ export default function CreatePostPage() {
           {attachment && (
             <div className="mediaContainer">
               {attachmentType === "image" && (
-                <Image
-                  src={attachment}
-                  alt="Attachment preview"
-                  width={0}
-                  height={0}
-                />
+                <img src={attachment} alt="Attachment preview" />
               )}
               {attachmentType === "video" && (
                 <video controls>

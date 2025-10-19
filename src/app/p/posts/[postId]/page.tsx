@@ -21,7 +21,8 @@ const Post = () => {
     queryFn: () => getPost(`/api/posts/single/${postId}`),
   });
   const { post } = postQuery?.data || {};
-  if (post === null) route.push("/p/home");
+  if (post === null) return route.push("/p/home");
+
   return (
     <div className="content view-post">
       <div>

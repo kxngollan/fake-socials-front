@@ -11,7 +11,6 @@ import {
 import { useAuthContext } from "@/hooks/useAuthContext";
 import useFollowMutation from "@/hooks/useFollowMutation";
 import { useFetch } from "@/hooks/useFetch";
-import Image from "next/image";
 
 import PostCard from "@/components/postcard/PostCard";
 import BackNav from "@/components/backnav/BackNav";
@@ -30,20 +29,19 @@ const UserProfile = () => {
   const queryKey = ["user", userId, "post"];
   const authContext = useAuthContext();
   const { unfollow, follow } = useFollowMutation({ id: userId }, queryKey);
-  const { data, isError, isPending } = useQuery({
-    queryKey, //Post for invalidate Liking
+  const { data, isPending } = useQuery({
+    queryKey,
     queryFn: getUser,
   });
 
-  const { user } = data || {}; //for easier
+  const { user } = data || {};
 
   const handleChat = async () => {
     try {
       const data = await myFetch(`/api/chats/user/${userId}`, {
         method: "PUT",
       });
-      // console.log(data);
-      route.push(`/p/message?chat=${data.chat.id}`);
+      route.push(`/p/message/${data.chat.id}`);
     } catch (err) {
       console.log(err);
     }
@@ -70,18 +68,11 @@ const UserProfile = () => {
             <BackNav label="User" />
             <div className="profile-main">
               {user?.profile?.profilePicture ? (
-                <Image
-                  src={user.profile.profilePicture}
-                  alt="Profile Picture"
-                  width={0}
-                  height={0}
-                />
+                <img src={user.profile.profilePicture} alt="Profile Picture" />
               ) : (
-                <Image
+                <img
                   src="https://static.vecteezy.com/system/resources/thumbnails/009/292/244/small/default-avatar-icon-of-social-media-user-vector.jpg"
                   alt="default profile picture"
-                  height={0}
-                  width={0}
                 />
               )}
               <div>
@@ -106,9 +97,9 @@ const UserProfile = () => {
                         Follow
                       </button>
                     )}
-                    <button onClick={handleChat}>
+                    {/* <button onClick={handleChat}>
                       <IconMessageCircle />
-                    </button>
+                    </button> */}
                   </div>
                 ) : (
                   <></>

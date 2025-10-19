@@ -121,7 +121,7 @@ const LoginPage = () => {
       </form>
 
       <button
-        onClick={() => handleSubmit(undefined, "GuestUser", "123123")}
+        onClick={() => handleSubmit(undefined, "222", "222")}
         disabled={disabled}
         id="guest-login"
       >

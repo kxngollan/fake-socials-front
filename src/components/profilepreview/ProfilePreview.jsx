@@ -15,18 +15,11 @@ const ProfilePreview = ({ user, showFollow = true, clickable = false }) => {
       className="profile-preview-card"
     >
       {user.profile && user.profile?.profilePicture ? (
-        <Image
-          src={user.profile.profilePicture}
-          alt="profile picture"
-          width={0}
-          height={0}
-        />
+        <img src={user.profile.profilePicture} alt="profile picture" />
       ) : (
-        <Image
+        <img
           src="https://static.vecteezy.com/system/resources/thumbnails/009/292/244/small/default-avatar-icon-of-social-media-user-vector.jpg"
           alt="default profile picture"
-          width={0}
-          height={0}
         />
       )}
 

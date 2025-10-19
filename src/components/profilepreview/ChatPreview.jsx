@@ -21,7 +21,7 @@ const ChatPreview = ({ chat, hover = false }) => {
       onClick={handleClick}
       className="profile-preview-card chat-preview cursor-pointer"
     >
-      <Image src={image_url} alt="" width={0} height={0} />
+      <img src={image_url} alt="profile picture" />
       <div>
         <p
           onClick={(e) => {

@@ -10,9 +10,12 @@ const Header = () => {
   const router = useRouter();
   const Logo = "https://placehold.co/600x400";
 
+  console.log(user);
+
   const handleNavigate = (path: string) => {
     router.push(path);
   };
+  console.log(user);
 
   return (
     <div id="header">
@@ -26,29 +29,29 @@ const Header = () => {
         style={{ cursor: "pointer" }}
       />
 
-      <p className="brand" onClick={() => handleNavigate("/p/home")}>
+      <p
+        className="brand cursor-pointer"
+        onClick={() => handleNavigate("/p/home")}
+      >
         Fake Socials
       </p>
 
       <div className="notif"></div>
 
       {user.profilePicture ? (
-        <Image
+        <img
           src={user.profilePicture}
           alt="Profile Picture"
-          width={0}
-          height={0}
           onClick={() => handleNavigate(`/p/users/${user.id}`)}
           style={{ borderRadius: "50%", cursor: "pointer" }}
         />
       ) : (
-        <Image
+        <img
           src={
             "https://static.vecteezy.com/system/resources/thumbnails/009/292/244/small/default-avatar-icon-of-social-media-user-vector.jpg"
           }
           alt="Default Profile Picture"
-          width={0}
-          height={0}
+          onClick={() => handleNavigate(`/p/users/${user.id}`)}
           style={{ borderRadius: "50%", cursor: "pointer" }}
         />
       )}

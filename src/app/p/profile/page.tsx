@@ -1,4 +1,4 @@
-"use client"
+"use client";
 
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import { IconEdit } from "@tabler/icons-react";
@@ -24,7 +24,7 @@ const Profile = () => {
   const myFetch = useFetch();
   const queryClient = useQueryClient();
 
-  const [attachment, setAttachment] = useState(null); 
+  const [attachment, setAttachment] = useState(null);
   const attachmentRef = useRef(null);
   const [editingField, setEditingField] = useState();
   const [username, setUsername] = useState(user.username);
@@ -45,7 +45,7 @@ const Profile = () => {
         method: "PATCH",
         body: data,
       },
-      false,
+      false
     );
   };
 
@@ -61,7 +61,6 @@ const Profile = () => {
       data.append("attachment", attachmentRef.current.files[0]);
     }
     updateUserMutation.mutate(data);
-
   };
 
   const updateUserMutation = useMutation({
@@ -86,7 +85,7 @@ const Profile = () => {
   });
 
   const { data, error, isPending, status } = useQuery({
-    queryKey: ["post", "profile"], 
+    queryKey: ["post", "profile"],
     queryFn: fetchUser,
   });
 
@@ -113,9 +112,9 @@ const Profile = () => {
 
   const currUser = (data && data.user) || {};
 
-  useEffect(()=>{
-    document.title = `${user.username} Profile - Fake Social`
-  })
+  useEffect(() => {
+    document.title = `${user.username} Profile - Fake Social`;
+  }, [user]);
 
   return (
     <div className="content user-profile-page self-profile">
@@ -127,7 +126,7 @@ const Profile = () => {
           <>
             <div className="profile-main">
               <div className="editable-pfp">
-                <Image width={0} height={0} alt="" src={attachment} />
+                <img alt="attachment" src={attachment} />
                 <label htmlFor="attachment">
                   <IconEdit />
                 </label>

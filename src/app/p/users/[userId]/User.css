@@ -1,5 +1,4 @@
 .user-profile-page {
-
   .profile-main {
     animation: rise 0.3s linear;
     display: flex;
@@ -12,7 +11,7 @@
       object-fit: cover;
       width: 30%;
       height: fit-content;
-      aspect-ratio: 1 !important;
+      aspect-ratio: !important;
       border-radius: 50%;
       border: 2px solid var(--color-neutral-bg);
     }
@@ -47,7 +46,6 @@
         align-items: center;
         gap: 2vw;
         > div > p:nth-child(1) {
-          
           font-weight: bold;
           text-align: center;
         }
@@ -69,10 +67,10 @@
             color: var(--color-bg);
           }
 
-          &.follow{
-             background-color: var(--color-neutral-1);
-             color: var(--color-bg);
-             &:hover {
+          &.follow {
+            background-color: var(--color-neutral-1);
+            color: var(--color-bg);
+            &:hover {
               background-color: var(--color-bg);
               color: var(--color-neutral-1);
             }

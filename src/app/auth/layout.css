@@ -240,12 +240,6 @@
   margin: 0.5rem;
   font-weight: bold;
   background: rgb(199, 121, 41);
-  background: linear-gradient(
-    90deg,
-    rgba(199, 121, 41, 1) 0%,
-    rgba(212, 24, 201, 1) 57%,
-    rgba(10, 90, 237, 1) 100%
-  );
   max-width: 340px;
   border: 1px solid #ffffff;
   transition: 0.3s ease-in-out;

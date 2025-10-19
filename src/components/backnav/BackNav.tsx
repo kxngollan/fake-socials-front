@@ -42,7 +42,7 @@ const BackNav = ({
         <Image
           onClick={goToLabelLink}
           src={image}
-          alt="profile_pic"
+          alt="profile picture"
           width={28}
           height={28}
           style={{ borderRadius: "50%", cursor: "pointer" }}

@@ -93,19 +93,15 @@ const CommentCard = ({ comment, postId }: CommentCardProps) => {
   return (
     <div className="parent-comment-card">
       <div className="comment-header">
-        {comment.user.profile ? (
-          <Image
+        {comment?.user?.profile?.profilePicture ? (
+          <img
             src={comment.user.profile.profilePicture}
             alt="profile picture"
-            width={0}
-            height={0}
           />
         ) : (
-          <Image
+          <img
             src="https://static.vecteezy.com/system/resources/thumbnails/009/292/244/small/default-avatar-icon-of-social-media-user-vector.jpg"
             alt="default profile picture"
-            width={0}
-            height={0}
           />
         )}
 

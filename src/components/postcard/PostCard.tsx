@@ -63,21 +63,29 @@ const PostCard = ({
   return (
     <div onClick={goToPost} className="postcard" role="button">
       <div className="post-header">
-        <Image
-          src={
-            post.author?.profile?.profilePicture ??
-            "https://static.vecteezy.com/system/resources/thumbnails/009/292/244/small/default-avatar-icon-of-social-media-user-vector.jpg"
-          }
-          alt={`${post.author?.username || "user"} avatar`}
-          width={0}
-          height={0}
-          onClick={(e) => {
-            e.stopPropagation();
-            goToUser(post.author.id);
-          }}
-          style={{ borderRadius: "50%", cursor: "pointer" }}
-        />
-
+        {post.author?.profile?.profilePicture ? (
+          <img
+            src={post.author?.profile?.profilePicture}
+            alt={`${post.author?.username || "user"} avatar`}
+            onClick={(e) => {
+              e.stopPropagation();
+              goToUser(post.author.id);
+            }}
+            style={{ borderRadius: "50%", cursor: "pointer" }}
+          />
+        ) : (
+          <img
+            src={
+              "https://static.vecteezy.com/system/resources/thumbnails/009/292/244/small/default-avatar-icon-of-social-media-user-vector.jpg"
+            }
+            alt={`default profile picture`}
+            onClick={(e) => {
+              e.stopPropagation();
+              goToUser(post.author.id);
+            }}
+            style={{ borderRadius: "50%", cursor: "pointer" }}
+          />
+        )}
         <span
           onClick={(e) => {
             e.stopPropagation();

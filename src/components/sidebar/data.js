@@ -23,11 +23,11 @@ export const data = [
     icon: IconUserSearch,
     link: "/search",
   },
-  {
-    name: "Message",
-    icon: IconMessages,
-    link: "/message",
-  },
+  // {
+  //   name: "Message",
+  //   icon: IconMessages,
+  //   link: "/message",
+  // },
   {
     name: "Likes",
     icon: IconHeart,
@@ -37,5 +37,5 @@ export const data = [
     name: "profile",
     icon: IconUserCircle,
     link: "/profile",
-  }
+  },
 ];

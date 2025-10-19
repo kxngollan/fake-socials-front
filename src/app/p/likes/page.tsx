@@ -7,6 +7,7 @@ import { useQuery } from "@tanstack/react-query";
 import BackNav from "@/components/backnav/BackNav";
 import BadRequest from "@/components/error/BadRequest";
 import MultiplePostCardSkeleton from "@/components/skeletons/postcardskeleton/MultiplePostCardSkeleton";
+import { useEffect } from "react";
 
 const LikeFeed = () => {
   const myFetch = useFetch();
@@ -14,6 +15,11 @@ const LikeFeed = () => {
     queryKey: ["like-feed"],
     queryFn: () => myFetch("/api/posts/likes"),
   });
+
+  useEffect(() => {
+    document.title = "Like Feed - Fake Socials";
+  });
+
   return (
     <>
       <div className="content like-feed">
