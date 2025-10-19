@@ -174,7 +174,7 @@ const CommentCard = ({ comment, postId }: CommentCardProps) => {
             value={input}
           />
           <div className="post-reply">
-            <Loader loading={createReplyMutation.isPending} />
+            <Loader loading={createReplyMutation.isPending} color="black" />
             <button disabled={createReplyMutation.isPending} type="submit">
               reply
             </button>
@@ -195,7 +195,7 @@ const CommentCard = ({ comment, postId }: CommentCardProps) => {
       )}
 
       {isFetchingNextPage ? (
-        <Loader loading={isFetchingNextPage} />
+        <Loader loading={isFetchingNextPage} color="black" />
       ) : (
         hasNextPage &&
         showReplies && (

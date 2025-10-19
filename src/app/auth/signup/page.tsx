@@ -176,7 +176,7 @@ export default function Signup() {
         <Link href="/auth/login">
           <span>Login</span>
         </Link>
-        {disabled && <Loader color="grey" loading={true} />}
+        {disabled && <Loader color="black" loading={true} />}
       </p>
       <p className="error-box">
         {error ? (

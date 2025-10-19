@@ -122,7 +122,7 @@ const DM = () => {
         )}
         {isPending ? (
           <div className="chat-messages">
-            <Loader loading={isPending} />
+            <Loader loading={isPending} color="black" />
           </div>
         ) : isError ? (
           <BadRequest />

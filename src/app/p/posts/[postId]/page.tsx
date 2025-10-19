@@ -28,7 +28,7 @@ const Post = () => {
       <div>
         <BackNav label="Post" />
         {postQuery.isLoading ? (
-          <Loader loading={postQuery.isLoading} />
+          <Loader loading={postQuery.isLoading} color="black" />
         ) : postQuery.isError ? (
           <BadRequest />
         ) : (

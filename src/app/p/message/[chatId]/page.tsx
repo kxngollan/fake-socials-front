@@ -187,7 +187,7 @@ export default Page;
 
 //         {isPending ? (
 //           <div className="chat-messages">
-//             <Loader loading={true} />
+//             <Loader loading={true} color="black" />
 //           </div>
 //         ) : isError ? (
 //           <BadRequest />

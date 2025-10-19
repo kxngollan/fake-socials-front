@@ -183,8 +183,12 @@ export default function CreatePostPage() {
             />
 
             <p>{text.length}/2000</p>
-            <Loader loading={createPostMutation.isPending} />
-            <button disabled={createPostMutation.isPending} type="submit">
+            <Loader loading={createPostMutation.isPending} color="black" />
+            <button
+              disabled={createPostMutation.isPending}
+              color="black"
+              type="submit"
+            >
               Post
             </button>
           </div>

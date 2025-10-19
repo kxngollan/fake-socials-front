@@ -120,7 +120,7 @@ const Profile = () => {
       <div>
         <BackNav label="Profile" />
         {isPending ? (
-          <Loader loading={isPending} />
+          <Loader loading={isPending} color="black" />
         ) : (
           <>
             <div className="profile-main">
@@ -220,7 +220,7 @@ const Profile = () => {
                 Save Changes
               </button>
               {updateUserMutation.isPending && (
-                <Loader loading={updateUserMutation.isPending} />
+                <Loader loading={updateUserMutation.isPending} color="black" />
               )}
             </div>
             <div className="profile-posts">

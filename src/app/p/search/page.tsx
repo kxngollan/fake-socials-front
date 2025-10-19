@@ -47,7 +47,10 @@ const SearchUsers = () => {
     <div className="content search-users">
       <div className="search">
         <form onSubmit={(e) => e.preventDefault()}>
-          <IconSearch />
+          <IconSearch
+            className="cursor-pointer hover:bg-black hover:text-white py-2"
+            onClick={handleSubmit}
+          />
           <input
             type="search"
             name="search"
@@ -60,7 +63,7 @@ const SearchUsers = () => {
         </form>
         <div className="results">
           {loading ? (
-            <Loader loading={loading} />
+            <Loader loading={loading} color="black" />
           ) : userList.length > 0 ? (
             userList.map((user) => (
               <ProfilePreview

@@ -70,7 +70,7 @@ const UserProfile = () => {
     <div className="content user-profile-page">
       <div>
         {isPending ? (
-          <Loader loading={isPending} />
+          <Loader loading={isPending} color="black" />
         ) : (
           <>
             <BackNav label="User" />
