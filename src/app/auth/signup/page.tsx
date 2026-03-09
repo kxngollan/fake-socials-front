@@ -88,12 +88,6 @@ export default function Signup() {
 
   return (
     <>
-      <Image
-        src={"https://placehold.co/600x400"}
-        width={0}
-        height={0}
-        alt="Logo"
-      />
       <p>Join us Today!</p>
       <p>Please fill in your details below</p>
       <form className="form-general login" onSubmit={handleSubmit}>
@@ -178,24 +172,29 @@ export default function Signup() {
         </Link>
         {disabled && <Loader color="black" loading={true} />}
       </p>
-      <p className="error-box">
-        {error ? (
-          <>
-            <IconAlertOctagon size="18px" />
-            {error}
-          </>
-        ) : (
-          ""
-        )}
-        {passwordsMismatch ? (
-          <>
-            <IconAlertOctagon size="18px" />
-            <span>Passwords do not match</span>
-          </>
-        ) : (
-          ""
-        )}
-      </p>
+
+      {error || passwordsMismatch ? (
+        <p className="error-box">
+          {error ? (
+            <>
+              <IconAlertOctagon size="18px" />
+              {error}
+            </>
+          ) : (
+            ""
+          )}
+          {passwordsMismatch ? (
+            <>
+              <IconAlertOctagon size="18px" />
+              <span>Passwords do not match</span>
+            </>
+          ) : (
+            ""
+          )}
+        </p>
+      ) : (
+        ""
+      )}
       <p className="or">
         <span>or</span>
       </p>

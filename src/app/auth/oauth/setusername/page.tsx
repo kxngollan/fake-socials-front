@@ -69,7 +69,7 @@ const SetUsernamePage = () => {
           method: "PATCH",
           body: JSON.stringify({ username: usernameInput }),
         },
-        { token }
+        { token },
       );
 
       setDisabled(false);
@@ -91,16 +91,16 @@ const SetUsernamePage = () => {
       <p>Almost Done!</p>
       <p>Choose a username:</p>
 
-      <p className="error-box">
-        {error ? (
+      {error ? (
+        <p className="error-box">
           <>
             <IconAlertOctagon size="22px" />
             <span>{error}</span>
           </>
-        ) : (
-          ""
-        )}
-      </p>
+        </p>
+      ) : (
+        ""
+      )}
 
       <form className="form-general" onSubmit={handleSubmit}>
         <input
