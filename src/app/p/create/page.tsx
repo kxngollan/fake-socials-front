@@ -2,7 +2,6 @@
 
 import { useRef, useState, useEffect, useCallback } from "react";
 import { useMutation, useQueryClient } from "@tanstack/react-query";
-import Image from "next/image";
 import { useRouter } from "next/navigation";
 import { useFetch } from "@/hooks/useFetch";
 import TextareaAutosize from "react-textarea-autosize";
@@ -55,7 +54,7 @@ export default function CreatePostPage() {
         }
       }
     },
-    [tag, tags]
+    [tag, tags],
   );
 
   useEffect(() => {
@@ -187,6 +186,9 @@ export default function CreatePostPage() {
             <button
               disabled={createPostMutation.isPending}
               color="black"
+              className=" bg-amber-700 border-b-2  border-amber-900 hover:bg-amber-400 disabled:bg-gray-400 disabled:border-gray-500 disabled:cursor-not-allowed
+              hover:disabled:bg-gray-400 hover:disabled:border-gray-500
+              "
               type="submit"
             >
               Post
